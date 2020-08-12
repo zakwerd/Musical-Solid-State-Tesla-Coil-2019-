@@ -76,6 +76,20 @@ A small controller to turn the gate driver on and off, allowing the duty cycle o
 ![sn4ZrEeJ0I2JhYpbMhebWIw](https://user-images.githubusercontent.com/59108656/89961383-63249100-dbf6-11ea-88ea-c975fd43178c.png)  
 *Figure 5. Example of an interrupter switching the inverter on and off at a frequency of 100Hz. The red box represents what is displayed in the red box in Figure 4.*  
 
+**Inverter (In Replacement of Spark Gap)**  
+An inverter uses transistors (typically MOSFETs or IGBTs) and large capacitors to produce an AC square wave across the primary coil at the coil’s resonant frequency. In electronics, an “inverter” is something that converts DC to AC. When the AC charges the polarized capacitors, the current will then release in one direction (now DC). The DC is then taken through half-bridge “inverter” circuit, which uses transistors and diodes to alternate the direction in which the capacitors’ discharged current flows (now back to AC - circuit walkthrough below for further explanation).  
+
+For the transistors used, IGBTs (insulated gate bipolar transistors) have a voltage drop that increases with the log of the current flowing through (which approximates to a power loss of IV). MOSFETs act as resistors, having a power dissipation of I2R, meaning there is a greater power loss than IGBTs. MOSFETs have the advantage of being able to switch on and off quicker and with a lower gate current, but they tend to be more expensive. For the prototype SSTC, IGBTs found onhand (Fairchild G30N60) are being implemented. The transistors used must be capable of switching on and off at the resonant frequency of the coil. The IGBTs implemented are rated for up to 222kHz, but can be pushed slightly above this frequency. For this reason, the prototype coil build (see current progress section) was designed to have a resonant frequency around 250kHz. For future builds that run at high resonant frequencies (400kHz+), MOSFETS will be used instead.  
+
+Free-wheeling diodes are added in front of the gate of the IGBTs. These reduce flyback, a sudden voltage spike across an inductive load when voltage suddenly changes.   
+
+High-power diodes are added in series with the capacitors. These diodes force the capacitors to discharge in specific directions, allowing for the DC to be converted to AC (see walkthrough below).  
+
+Unipolar capacitors convert the AC input into DC before later being inverted back to AC through the primary coil. The capacitors store the large amounts of charge that run through the primary coil powering the secondary coil.  
+
+High resistance (100k-ohms+) resistors are added in parallel with the bus capacitor(s) to act as bleeder resistors: if the capacitors are still charged after use, the bleeder resistors will safely dissipate the remaining charge.  
+
+
 
 
 ## Credits
