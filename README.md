@@ -69,6 +69,13 @@ This amplifies signals from the feedback system and sends them to the transistor
 **Interrupter (In Replacement of Spark Gap, Allows for Music)**  
 A small controller to turn the gate driver on and off, allowing the duty cycle of the SSTC to be adjustable (controls pulse width - inverter on-time - and frequency). This is typically done with either a 555 chip with a potentiometer to control the duty cycle or an IC (like an ATtiny or Arduino IC) with a potentiometer to control the duty cycle. By controlling the gate driver, the interrupter also prevents high currents from constantly running through the transistors in the inverter circuit and breaking them (this becomes more important for DRSSTCs and QCW DRSSTCs when there are much higher currents running through the circuit). The gate driver on and off time is different than the output pulses from the gate driver. The gate driver may be switching the inverter transistors at 250kHz while the interrupter switches the gate driver at a rate of 200Hz. 
 
+![sh-MA_WHMdrhCl8SJhayR9A](https://user-images.githubusercontent.com/59108656/89961382-61f36400-dbf6-11ea-9a82-47af016b03c1.png)  
+*Figure 4. Example output signal from the inverter that is sent to the transistors (around 166kHz). The signal enclosed in the red box is the same signal enclosed in the red box on Figure 5. The sharp peaks before flattening out are due to the 555 chip circuit not producing a perfect square wave.*  
+
+
+![sn4ZrEeJ0I2JhYpbMhebWIw](https://user-images.githubusercontent.com/59108656/89961383-63249100-dbf6-11ea-88ea-c975fd43178c.png)  
+*Figure 5. Example of an interrupter switching the inverter on and off at a frequency of 100Hz. The red box represents what is displayed in the red box in Figure 4.*  
+
 
 
 ## Credits
