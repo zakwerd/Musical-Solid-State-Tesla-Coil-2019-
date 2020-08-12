@@ -1,8 +1,5 @@
 # Musical Solid State Tesla Coil (2019)
 
-![thumbnail_IMG_2164](https://user-images.githubusercontent.com/59108656/90054606-f14d5580-dc90-11ea-87a2-eade87794c16.jpg)  
-*Figure 8. My final coil build being displayed at our school's Maker Faire. Next to me is Ethan Zhang, displaying his crazy awesome coil gun.* 
-
 ## Overview  
 This page details the design and build process of my first attempt at a musical solid state Tesla Coil. I will not only be outlining what I did but also the physics and reasoning behind my decisions. Hopefully, this will result in a fairly comprehensive overview of how an SSTC is built. Most of the first part of this paper will go into how SSTCs and Tesla Coils work, so if you just want to skip to my build, you can begin at *Figure 7.* Along with my successes, I hope to clearly display my mistakes and their causes. I am currently working on a new SSTC (and eventually QCW DRSSTC), which you can soon find updates for on my github.
 
@@ -11,6 +8,9 @@ I have included a credits section at the bottom, but I would like to acknowledge
 If you notice any errors regarding grammar, formatting, or explanations, please notify me! I appreciate your help!
 
 *Note: will try to update the math equations to display nicely in markdown instead of being in a text format*
+
+![thumbnail_IMG_2164](https://user-images.githubusercontent.com/59108656/90054606-f14d5580-dc90-11ea-87a2-eade87794c16.jpg)  
+*Figure 8. My final coil build being displayed at our school's Maker Faire. Next to me is Ethan Zhang, displaying his crazy awesome coil gun.* 
 
 ## Theory
 *Note: In order to fully explain the physics and electrical components behind an SSTC, I will go through the physics and components behind a standard spark-gap Tesla Coil. The “Design” section was placed after the “Theory” section to hopefully make the design explanations easier to understand.*
