@@ -111,9 +111,6 @@ The capacitors being used were selected based on what capacitors were available 
 **No Feedback System**  
 The feedback system sends a signal that tells the IGBTs what frequency to trigger at, which gets the coil running. However, to test the feedback system, the coil has to already running in the first place. To work around this, a 555 chip circuit that creates a square wave at 250kHz (just around the resonant frequency) was made to act like the feedback circuit. The feedback circuit is still being tested with and has yet to work. Once the feedback circuit works, it will replace the 555 chip controlled circuit.
 
-![thumbnail_IMG_2164](https://user-images.githubusercontent.com/59108656/90054606-f14d5580-dc90-11ea-87a2-eade87794c16.jpg)  
-*Figure 8. My final coil build being displayed at our school's Maker Faire. Next to me is Ethan Zhang, displaying his crazy awesome coil gun.*  
-
 ## Results, My Mistakes, What I Learned, and Concluding Thoughts  
 The final build was only able to produce tones within a two to three octave range, and then it would abruptly go silent. I haven't done much research regarding this issue, so it is entirely possible that there are audible frequencies that coils just can't produce all that well. I think it is more likely that my inverter and gate drive system weren't perfectly optimized. This is based on the fact that the sparks were smaller than expected (at their best, they were around two inches in length).
 
