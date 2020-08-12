@@ -3,7 +3,9 @@
 ## Overview  
 This page details the design and build process of my first attempt at a musical solid state Tesla Coil. I will not only be outlining what I did but also the physics and reasoning behind my decisions. Hopefully, this will result in a fairly comprehensive overview of how an SSTC is built. Most of the first part of this paper will go into how SSTCs and Tesla Coils work, so if you just want to skip to my build, you can begin at *Figure 7.* Along with my successes, I hope to clearly display my mistakes and their causes. I am currently working on a new SSTC (and eventually QCW DRSSTC), which you can soon find updates for on my github.
 
-I have included a credits section at the bottom, but I would like to acknowledge Gao Guangyan from LoneOceans Labs here as well. Gao has not only provided some of the most comprehensive overviews of how Tesla Coils are built and the physics behind them, but he also responded to some hyper-specific questions I emailed him regarding my circuit. I attribute a majority of what I've learned about Tesla Coils to Gao, so he deserves a monumental amount of credit for my accomplishments (both past and future) regarding Tesla Coils.
+I have included a credits section at the bottom, but I would like to acknowledge Gao Guangyan from LoneOceans Labs here as well. Gao has not only provided some of the most comprehensive overviews of how Tesla Coils are built and the physics behind them, but he also responded to some hyper-specific questions I emailed him regarding my circuit. I attribute a majority of what I've learned about Tesla Coils to Gao, so he deserves a monumental amount of credit for helping me achieve my accomplishments (both past and future) regarding Tesla Coils.
+
+If you notice any errors regarding grammar, formatting, or explanations, please notify me! I appreciate your help!
 
 *Note: will try to update the math equations to display nicely in markdown instead of being in a text format*
 
@@ -90,8 +92,33 @@ The Tesla Coil sparks are produced due to the inverter signal sent at the resona
 3. The gate driver amplifies the feedback signal’s current and sends it to the inverter.  
 4. Following along with the pink box on Figure 6: 120VAC feeds into the two capacitors. The gate driver’s signal will trigger the top IGBT (arbitrarily chosen for this example) and leave the bottom IGBT off. Top capacitor will be unable to discharge. With the top IGBT open, the bottom capacitor can discharge through both diodes, through the top IGBT, and across the primary coil (red arrows in Figure 6 display the flow of current when capacitor discharges). When this ends, the IGBTs switch being on and off, discharging the other capacitor through the coil as the other recharges.  
 
+## Design
+
+### Circuit Diagram  
 ![SSTC 1 0 Circuit_schem](https://user-images.githubusercontent.com/59108656/90052023-6d459e80-dc8d-11ea-956c-d77f54b3a51b.png)  
 *Figure 7. My circuit Diagram of current SSTC build. Includes a 555 controlled interrupter instead of a MIDI circuit for simplicity. Excludes a feedback system in replacement for a 555 chip controlled feedback system that outputs a signal at the resonant frequency. 
+
+### My Design/Circuit Decisions and Their Reasoning  
+**IGBTs and Coils**  
+To achieve a compact build, a resonant frequency between 200kHz and 300kHz would have to be used. IGBTs have less power loss than MOSFETs, but switch at a lower max speed. The IGBTs being used (Fairchild G30N60) are rated for switch speeds up to 222kHz, so the build was designed to have a resonant frequency at around the same value. There are many different combinations of primary and secondary wire gauges in conjunction with winding heights and radii that could have resulted in the final resonant frequency used (250 kHz). Therefore, the height and radii of the coil were chosen purely for aesthetic purposes, and the gauges of the coils’ wires were chosen to match the needed resonant frequency.  
+
+**Capacitors**  
+The capacitors being used were selected based on what capacitors were available in the Whitaker lab and what capacitors were typically used for compact musical Tesla Coils. In short, there is no “perfect capacitor” for a musical Tesla Coil. Testing has revealed that the capacitors currently being used may not be able to charge and discharge quickly enough. If true, special capacitors with faster switch speeds will need to be used instead.
+
+**No Feedback System**  
+The feedback system sends a signal that tells the IGBTs what frequency to trigger at, which gets the coil running. However, to test the feedback system, the coil has to already running in the first place. To work around this, a 555 chip circuit that creates a square wave at 250kHz (just around the resonant frequency) was made to act like the feedback circuit. The feedback circuit is still being tested with and has yet to work. Once the feedback circuit works, it will replace the 555 chip controlled circuit.
+
+![thumbnail_IMG_2164](https://user-images.githubusercontent.com/59108656/90054606-f14d5580-dc90-11ea-87a2-eade87794c16.jpg)  
+*Figure 8. My final coil build being displayed at our school's Maker Faire. Next to me is Ethan Zhang, displaying his crazy awesome coil gun.*  
+
+## Results, My Mistakes, What I Learned, and Concluding Thoughts  
+The final build was only able to produce tones within a two to three octave range, and then it would abruptly go silent. I haven't done much research regarding this issue, so it is entirely possible that there are audible frequencies that coils just can't produce all that well. I think it is more likely that my inverter and gate drive system weren't perfectly optimized. This is based on the fact that the sparks were smaller than expected (at their best, they were around two inches in length).
+
+There were many mistakes throughout this engineering endeavor. Firstly, the entire build clearly was not optimized. Secondly, the feedback system didn't seem to make any noticable difference. There were many other minor circuitry errors (like the gate drive resistor values being slightly off, possibly creating a significant performance hindrance in the gate driver). Most of my mistakes originated simply from a lack of rigorous understanding of the operation of Tesla Coils. As I try to recreate this build, I will dedicate significantly more time towards fully understanding all of the physics nuances regarding Tesla Coils before I touch a soldering iron. This step is crucial for endeavoring to build more advanced coils, like QCWs, in which there is hardly any build information available online.
+
+After this project, I learned a significant amount of Electrical Engineering knowledge and skills. For that reason, despite the coil not working to my expectations, I am incredibly happy with the results.
+
+If you have made it this far, I hope you enjoyed my paper.
 
 ## Credits
 Thank you to [LoneOceans](https://www.loneoceans.com/labs/) for giving me the foundation of all I know about Tesla Coils.  
