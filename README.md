@@ -1,7 +1,9 @@
 # Musical Solid State Tesla Coil (2019)
 
 ## Overview  
-This page details the design and build process of my first attempt at a musical solid state Tesla Coil. I will not only be outlining what I did but also the physics and reasoning behind my decisions; hopefully, resulting in a fairly comprehensive overview of how an SSTC is built. Along with my successes, I hope to clearly display my mistakes and their causes. I am currently working on a new SSTC (and eventually QCW DRSSTC), which you can soon find updates for on my github.
+This page details the design and build process of my first attempt at a musical solid state Tesla Coil. I will not only be outlining what I did but also the physics and reasoning behind my decisions. Hopefully, this will result in a fairly comprehensive overview of how an SSTC is built. Most of the first part of this paper will go into how SSTCs and Tesla Coils work, so if you just want to skip to my build, you can begin at *Figure 7.* Along with my successes, I hope to clearly display my mistakes and their causes. I am currently working on a new SSTC (and eventually QCW DRSSTC), which you can soon find updates for on my github.
+
+I have included a credits section at the bottom, but I would like to acknowledge Gao Guangyan from LoneOceans Labs here as well. Gao has not only provided some of the most comprehensive overviews of how Tesla Coils are built and the physics behind them, but he also responded to some hyper-specific questions I emailed him regarding my circuit. I attribute a majority of what I've learned about Tesla Coils to Gao, so he deserves a monumental amount of credit for my accomplishments (both past and future) regarding Tesla Coils.
 
 *Note: will try to update the math equations to display nicely in markdown instead of being in a text format*
 
