@@ -23,6 +23,22 @@ A transformer is a means of transferring electrical energy with two coils via a 
 **Spark Gap**  
 The spark gap controls the discharge frequency of the capacitors in the Tesla Coil. Current does not run through the spark gap at the resonant frequency. Instead, the spark gap allows for a quick pulse of current which then oscillates in the primary coil at the resonant frequency. A spark gap is simply an open space with two electrically conductive leads on either side. Increasing the width of the spark-gap makes it so a larger potential difference across the leads must be achieved for the capacitor to discharge and arc across. Thus, to arc through a wider gap, there must be more charge stored in the capacitors, which takes more time (Q=It).
 
+### Steps of a Spark Gap Tesla Coil Circuit
+1. An AC input is fed into a high voltage transformer, outputting a higher voltage than the input (red box in Figure 1).  
+2. When totally uncharged, the capacitor acts as short circuit, causing the current to flow into the capacitor and charge it (blue box in Figure 1).  
+3. As the capacitor charges, it builds a potential difference across its leads. When the potential difference becomes large enough, the capacitor can discharge by arcing across the spark gap and through the primary coil (orange arrows in Figure 1). The arrows have directionality, but the actual current is alternating directions through each cycle.  
+4. The primary and secondary coils along with their capacitors (high voltage primary capacitor and air capacitor formed with the toroid) are driven at the secondary’s resonant frequency. Charge builds on top of the toroid and eventually discharges into the air, creating sparks.  
+
+![shJ4l5NRJFMEGdNqGnOgjuA](https://user-images.githubusercontent.com/59108656/89960685-88b09b00-dbf4-11ea-874f-4346856ebe1c.png)  
+*Figure 1. Basic spark-gap Tesla Coil circuit diagram consisting of an AC input, voltage transformer, spark gap, capacitor, primary coil, and secondary coil.*
+
+
+
+
+
+
+
+
 ## Credits
 Thank you to [LoneOceans](https://www.loneoceans.com/labs/) for giving me the foundation of all I know about Tesla Coils.  
 Thank you to [Steve Ward](https://www.stevehv.4hv.org/SSTCindex.htm) for providing an abundance of knowledge regarding Tesla Coils and for revolutionizing Tesla Coil technology.  
