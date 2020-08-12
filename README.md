@@ -24,13 +24,26 @@ A transformer is a means of transferring electrical energy with two coils via a 
 The spark gap controls the discharge frequency of the capacitors in the Tesla Coil. Current does not run through the spark gap at the resonant frequency. Instead, the spark gap allows for a quick pulse of current which then oscillates in the primary coil at the resonant frequency. A spark gap is simply an open space with two electrically conductive leads on either side. Increasing the width of the spark-gap makes it so a larger potential difference across the leads must be achieved for the capacitor to discharge and arc across. Thus, to arc through a wider gap, there must be more charge stored in the capacitors, which takes more time (Q=It).
 
 ### Steps of a Spark Gap Tesla Coil Circuit
-1. An AC input is fed into a high voltage transformer, outputting a higher voltage than the input (red box in Figure 1).  
-2. When totally uncharged, the capacitor acts as short circuit, causing the current to flow into the capacitor and charge it (blue box in Figure 1).  
-3. As the capacitor charges, it builds a potential difference across its leads. When the potential difference becomes large enough, the capacitor can discharge by arcing across the spark gap and through the primary coil (orange arrows in Figure 1). The arrows have directionality, but the actual current is alternating directions through each cycle.  
+1. An AC input is fed into a high voltage transformer, outputting a higher voltage than the input (red box in *Figure 1*).  
+2. When totally uncharged, the capacitor acts as short circuit, causing the current to flow into the capacitor and charge it (blue box in *Figure 1*).  
+3. As the capacitor charges, it builds a potential difference across its leads. When the potential difference becomes large enough, the capacitor can discharge by arcing across the spark gap and through the primary coil (orange arrows in *Figure 1*). The arrows have directionality, but the actual current is alternating directions through each cycle.  
 4. The primary and secondary coils along with their capacitors (high voltage primary capacitor and air capacitor formed with the toroid) are driven at the secondary’s resonant frequency. Charge builds on top of the toroid and eventually discharges into the air, creating sparks.  
 
 ![shJ4l5NRJFMEGdNqGnOgjuA](https://user-images.githubusercontent.com/59108656/89960685-88b09b00-dbf4-11ea-874f-4346856ebe1c.png)  
 *Figure 1. Basic spark-gap Tesla Coil circuit diagram consisting of an AC input, voltage transformer, spark gap, capacitor, primary coil, and secondary coil.*
+
+### Solid State Tesla Coil Basic Overview  
+A SSTC is the same as a spark-gap Tesla Coil, but the spark-gap is replaced with an IC to control the pulse frequency and width (“on-time”) of the capacitor discharges through the primary. The IC circuit controls the gates of high-power transistors; thus, controlling the discharge frequency of the main capacitor(s).
+
+### Musical SSTC Main Components and Physics (Continuation of Spark Gap Description)  
+**How Music is Made**  
+A clap produces a single, quick note. A clap’s sound has an “on-time” (the duration that the sound is emitting) that is only a fraction of a second. The “on-time” of a clap can’t be changed, but the frequency can. By clapping at an increasing rate, the spacing between the “on-times” shrinks, increasing the pulse width percentage (the on-time percentage of each on and off cycle) and frequency of the clapping (demonstrated by the change between *Figure 2* and *Figure 3*). At a certain point, clapping at a high enough frequency will sound like a constant tone (e.g. when a large audience claps its perceived as a constant noise instead of hundreds of individual, distinct clap sounds). By increasing the capping frequency beyond this point, the constant tone will get higher in pitch. This is how the sparks can produce musical sounds. Each spark is a clap in this analogy. At a high enough frequency (100+ Hz), sparks will sound like a constant loud note, and by increasing the frequency, the note can change. Thus, by controlling just the frequency of the spark output (and keeping the pulse width constant as in the clapping example), music can be made.
+
+![IMG_0890](https://user-images.githubusercontent.com/59108656/89960908-1c826700-dbf5-11ea-93e0-c2ba509760c5.jpg)  
+*Figure 2. Example of the sound outputs of five equally spaced claps in which a clap has roughly an “on-time” of 2 milliseconds. Each clap is producing a sound during the rectangular peaks, and there is silence elsewhere.*
+
+![IMG_0891](https://user-images.githubusercontent.com/59108656/89960944-34f28180-dbf5-11ea-8428-235b31439342.jpg)
+*Figure 3. Example of the sound outputs of claps as the frequency increases. Note that the on-time is the same as in Figure 2, but the on-time percentage of each cycle has increased along with the frequency. This sequence of claps would sound higher pitched than the sequence in Figure 2.*
 
 
 
