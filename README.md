@@ -45,10 +45,29 @@ A clap produces a single, quick note. A clap’s sound has an “on-time” (the
 ![IMG_0891](https://user-images.githubusercontent.com/59108656/89960944-34f28180-dbf5-11ea-8428-235b31439342.jpg)
 *Figure 3. Example of the sound outputs of claps as the frequency increases. Note that the on-time is the same as in Figure 2, but the on-time percentage of each cycle has increased along with the frequency. This sequence of claps would sound higher pitched than the sequence in Figure 2.*
 
+**Inverter (In Replacement of Spark Gap)**  
+An inverter (purple box on Figure 7) uses transistors (typically MOSFETs or IGBTs) and large capacitors to produce an AC square wave across the primary coil at the coil’s resonant frequency. In electronics, an “inverter” is something that converts DC to AC. When the AC charges the polarized capacitors, the current will then release in one direction (now DC). The DC is then taken through half-bridge “inverter” circuit, which uses transistors and diodes to alternate the direction in which the capacitors’ discharged current flows (now back to AC - circuit walkthrough below for further explanation).  
 
+For the transistors used, IGBTs (insulated gate bipolar transistors) have a voltage drop that increases with the log of the current flowing through (which approximates to a power loss of IV). MOSFETs act as resistors, having a power dissipation of I^2R, meaning there is a greater power loss than IGBTs. MOSFETs have the advantage of being able to switch on and off quicker and with a lower gate current, but they tend to be more expensive. For the prototype SSTC, IGBTs found onhand (Fairchild G30N60) are being implemented. The transistors used must be capable of switching on and off at the resonant frequency of the coil. The IGBTs implemented are rated for up to 222kHz, but can be pushed slightly above this frequency. For this reason, the prototype coil build (see current progress section) was designed to have a resonant frequency around 250kHz. For future builds that run at high resonant frequencies (400kHz+), MOSFETS will be used instead.  
 
+Free-wheeling diodes are added in front of the gate of the IGBTs. These reduce flyback, a sudden voltage spike across an inductive load when voltage suddenly changes. 
 
+High-power diodes are added in series with the capacitors. These diodes force the capacitors to discharge in specific directions, allowing for the DC to be converted to AC (see walkthrough below).
 
+Unipolar capacitors convert the AC input into DC before later being inverted back to AC through the primary coil. The capacitors store the large amounts of charge that run through the primary coil powering the secondary coil.
+
+High resistance (100k-ohms+) resistors are added in parallel with the bus capacitor(s) to act as bleeder resistors: if the capacitors are still charged after use, the bleeder resistors will safely dissipate the remaining charge.
+
+**Feedback System (In Replacement of Spark Gap)**  
+The feedback system picks up a signal from the current oscillating in the secondary (this is at the resonant frequency) and send it to the gate drive chips to open and close the transistors accordingly. This also allows SSTCs to be self tuning: if the environment changes, altering the resonant frequency of the secondary, the feedback system will pick up the new resonant frequency and adjust the switch time of the gate driver.  
+
+Feedback is typically done with a current, feedback transformer or an antenna. The transformer feedback uses the ground end of the secondary in a toroidal transformer to pick up the frequency it is running at which feeds into the input signal pins of the drive chips. Similarly, the antenna picks up the sinusoidal current through the secondary and delivers it to the drive chips. The antenna method tends to be simpler (it is essentially just a wire), but the drive transformer is more compact and reliable. In the current SSTC build, both methods are being experimented with, but a feedback transformer will be used for the final version. 
+
+**Gate Driver (In Replacement of Spark Gap)**  
+This amplifies signals from the feedback system and sends them to the transistors of the inverter to open and close the gates at the correct frequency. The most common SSTC gate driver uses the UCC27321 and UCC27322 MOSFET drive chips together, outputting a 12V, 9A signal to the gate of the transistors of the inverter. A transformer is commonly added to the output of the drive chips to increase the voltage, ensuring that the gates of the transistors are fully triggered.
+
+**Interrupter (In Replacement of Spark Gap, Allows for Music)**  
+A small controller to turn the gate driver on and off, allowing the duty cycle of the SSTC to be adjustable (controls pulse width - inverter on-time - and frequency). This is typically done with either a 555 chip with a potentiometer to control the duty cycle or an IC (like an ATtiny or Arduino IC) with a potentiometer to control the duty cycle. By controlling the gate driver, the interrupter also prevents high currents from constantly running through the transistors in the inverter circuit and breaking them (this becomes more important for DRSSTCs and QCW DRSSTCs when there are much higher currents running through the circuit). The gate driver on and off time is different than the output pulses from the gate driver. The gate driver may be switching the inverter transistors at 250kHz while the interrupter switches the gate driver at a rate of 200Hz. 
 
 
 
